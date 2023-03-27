@@ -15,6 +15,14 @@
   </thead>
   
   <tbody>
+  @if(Session::has('success'))
+  {{Session::get('success')}}
+  
+  <script>
+    alert('User has been deleted successfuly!')
+  </script>
+  @endif
+
   @foreach($customers as $customer)
     <tr style="background: linear-gradient(to bottom, #D7E1EC 0%, #FFFFFF 100%); text-align:center;">
 
@@ -27,13 +35,13 @@
 
       <td>
           <form action="edit/{{$customer['id']}}" method="GET">
-            <button type="submit" class="btn btn-primary">Edit</button>
+            <button type="submit" class="btn btn-primary" >Edit</button>
           </form>
       </td>
 
       <td>
           <form action="delete/{{$customer['id']}}" method="GET">
-            <button type="submit" class="btn btn-danger">Delete</button>
+            <button type="submit" class="btn btn-danger" >Delete</button>
           </form>
       </td>
 

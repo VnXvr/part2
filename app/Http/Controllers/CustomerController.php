@@ -16,6 +16,7 @@ class CustomerController extends Controller
     {
         $data=Customer::find($id);
         $data->delete();
+        session()->flash('success', '');
         return redirect('/');
     }
 
@@ -25,10 +26,25 @@ class CustomerController extends Controller
         return view('customer.edit',['customers'=>$data]);
     }
 
+    public function addData(Request $req)
+    {
+        // return view('customer.add');
+        $customer= new Customer;
+        
+        $customer->firstName=$req->firstName;
+        $customer->lastName=$req->lastName;
+        $customer->email=$req->email;
+        $customer->contactNumber=$req->contactNumber;
+        $customer->address=$req->address;
+        $customer->save();
+        return redirect('/');
+    }
+
     public function update(Request $req)
     {
 
         $data= Customer::find($req->id);
+
         $data->firstName=$req->firstName;
         $data->lastName=$req->lastName;
         $data->email=$req->email;
