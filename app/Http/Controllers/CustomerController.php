@@ -4,14 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Customer;
+use App\Models\User;
+
+use Auth;
 
 class CustomerController extends Controller
 {
     public function index1()
     {
+        $nameof_User = Auth::user()->name;
+        $emailof_User = Auth::user()->email;
         $data = Customer::all();
-        return view('customer.customer',['customers'=>$data]);
+        return view('customer.customer',compact('nameof_User','emailof_User'),['customers'=>$data]);
     }
+
+
     public function delete($id)
     {
         $data=Customer::find($id);
@@ -25,6 +32,14 @@ class CustomerController extends Controller
         $data= Customer::find($id);
         return view('customer.edit',['customers'=>$data]);
     }
+
+    public function showdataofUser()
+    {
+
+        return view('customer.policy');
+
+    }
+
 
     public function addData(Request $req)
     {
@@ -51,6 +66,7 @@ class CustomerController extends Controller
         $data->contactNumber=$req->contactNumber;
         $data->address=$req->address;
         $data->save();
+        session()->flash('updated', '');
         return redirect('/');
     }
 

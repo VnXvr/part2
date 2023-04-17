@@ -15,25 +15,24 @@
             <div class="mb-md-5 mt-md-4 pb-5">
 
               <h2 class="fw-bold mb-2 text-uppercase">Register</h2>
-              <p class="text-white-50 mb-5">Create your account here</p>
-
+              <p class="text-white-50 mb-5">Create your account here (Any Email will do)</p>
               <div class="form-outline form-white mb-4">
-                <input type="text"  class="form-control form-control-lg" name="name"/>
+                <input type="text"  placeholder="Sample"  class="form-control form-control-lg" name="name"/>
                 <label  for="name" class="form-label">Name</label>
               </div>
 
               <div class="form-outline form-white mb-4">
-                <input type="email" id="typeEmailX" class="form-control form-control-lg" name="email"/>
+                <input type="email" placeholder="Sample@gmail.com" id="typeEmailX" class="form-control form-control-lg" name="email"/>
                 <label class="form-label" for="typeEmailX">Email</label>
               </div>
 
               <div class="form-outline form-white mb-4">
-                <input type="password" id="typePasswordX" class="form-control form-control-lg" name="password"/>
+                <input type="password" placeholder="Min: 6 Characters" id="typePasswordX" class="form-control form-control-lg" name="password"/>
                 <label class="form-label" for="typePasswordX">Password</label>
               </div>
 
               <div class="form-outline form-white mb-4">
-                <input type="password" id="typePasswordX" class="form-control form-control-lg" name="password_confirmation"/>
+                <input type="password" id="typePasswordX" placeholder="Min: 6 Characters"  class="form-control form-control-lg" name="password_confirmation"/>
                 <label for="confirmpassword" class="form-label" >Confirm Password</label>
               </div>
 

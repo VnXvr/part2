@@ -24,9 +24,26 @@
                 background-position: 0% 50%;
             }
         }
+
+        .policy p {
+        color: black;
+        text-align:center;
+        position:absolute; 
+        bottom:0; 
+        left:0; 
+        right:0;
+        }
+
     </style>
 </head>
 <body>
 <!-- Your login form here -->
 </body>
+
+<div class="policy">
+<footer>
+<p>&copy; Creadted by VINCE MICKLAY: 2023 Your Company BENCE. All Rights Reserved. <a href="/policy">Privacy Policy</a></p>
+</footer>
+</div>
+
 </html>

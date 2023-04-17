@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +25,21 @@ Route::get('delete/{id}', [CustomerController::class, 'delete'])->middleware('au
 Route::get('edit/{id}', [CustomerController::class, 'showData'])->middleware('auth');
 Route::post('edit', [CustomerController::class, 'update']);
 
+Route::get('/policy', [CustomerController::class, 'showdataofUser']);
+
+//Add Customers
 Route::view('add','addcustomer')->middleware('auth');
 Route::post('add', [CustomerController::class, 'addData'])->middleware('auth');
+
+
+Route::get('/products', [ProductController::class, 'product'])->middleware('auth');
+Route::get('editproducts/{id}', [ProductController::class, 'showProduct'])->middleware('auth');
+Route::post('editproducts', [ProductController::class, 'updateProduct']);
+Route::get('deleteproduct/{id}', [ProductController::class, 'deleteproduct'])->middleware('auth');
+
+//Add Products
+Route::view('addprod','addproducts')->middleware('auth');
+Route::post('addprod', [ProductController::class, 'addProduct'])->middleware('auth');
 
 
 Route::get('/register', [UserController::class, 'register']);

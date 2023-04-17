@@ -1,4 +1,4 @@
-@include('partial.headercustomer')
+@include('partial.headerproduct')
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {
@@ -103,52 +103,52 @@ body {
 <table  class="table table-dark table-striped">
   <thead>
     <tr style="background: linear-gradient(to bottom, #28313B 0%, #485461 100%); text-align:center; color:white" font-family:Sans-serif>
-            <th scope="col">Customer ID</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Contact Number</th>
-            <th scope="col">Address</th>
+            <th scope="col">Product ID</th>
+            <th scope="col">Description</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
             <th scope="col"></th>
             <th scope="col"></th>
     </tr>
   </thead>
 
   <tbody>
-  @if(Session::has('success'))
-  {{Session::get('success')}}
+
+  @if(Session::has('prodsuccess'))
+  {{Session::get('prodsuccess')}}
   
   <script>
-    alert('User has been deleted successfuly!')
+    alert('Product has been deleted successfuly!')
   </script>
   @endif
 
-  @if(Session::has('updated'))
-  {{Session::get('updated')}}
+
+  @if(Session::has('produpdate'))
+  {{Session::get('produpdate')}}
   
   <script>
-    alert('User has been updated successfuly!')
+    alert('Product has been updated!')
   </script>
   @endif
 
-  @foreach($customers as $customer)
+
+
+  @foreach($products as $product)
     <tr style="background: linear-gradient(to bottom, #D7E1EC 0%, #FFFFFF 100%); text-align:center;">
 
-      <td> {{$customer->id}} </td>
-      <td> {{$customer->firstName}} </td>
-      <td> {{$customer->lastName}} </td>
-      <td> {{$customer->email}} </td>
-      <td> {{$customer->contactNumber}} </td>
-      <td> {{$customer->address}} </td>
+      <td> {{$product->id}} </td>
+      <td> {{$product->description}} </td>
+      <td> {{$product->quantity}} </td>
+      <td> {{$product->price}} </td>
 
       <td>
-          <form action="edit/{{$customer['id']}}" method="GET">
+          <form action="editproducts/{{$product['id']}}" method="GET">
             <button type="submit" class="btn btn-primary" >Edit</button>
           </form>
       </td>
 
       <td>
-          <form action="delete/{{$customer['id']}}" method="GET">
+          <form action="deleteproduct/{{$product['id']}}" method="GET">
             <button type="submit" class="btn btn-danger" >Delete</button>
           </form>
       </td>
@@ -176,16 +176,15 @@ function closeNav() {
 </head>
 
 <body>
-<x-customersnav/>
+<x-productsnav/>
   </tbody>
 </table>
 </body>
 
 <div class="policy">
 <footer>
-  <p>&copy; Creadted by VINCE MICKLAY: 2023 Your Company BENCE. All Rights Reserved. <a href="/policy">Privacy Policy</a></p>
+<p>&copy; Creadted by VINCE MICKLAY: 2023 Your Company BENCE. All Rights Reserved. <a href="/policy">Privacy Policy</a></p>
 </footer>
 </div>
-
 
 </html>
